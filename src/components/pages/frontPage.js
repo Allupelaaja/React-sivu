@@ -1,4 +1,4 @@
-function frontPage() {
+const frontPage = () => {
     return (
       <div>
         <h1>Front page</h1>

@@ -1,4 +1,4 @@
-function welcomePage() {
+const welcomePage = () => {
     return (
       <div>
         <h1>Welcome</h1>
