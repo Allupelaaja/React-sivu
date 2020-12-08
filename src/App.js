@@ -1,8 +1,11 @@
+import MainBars from './components/parts/mainBars'
+
 function App() {
   return (
     <div>
-      <h1>Hiano sivu</h1>
-        <p>Jotain tekstiä tähän jee jeppppp</p>
+      <MainBars>
+        <p>Tekstiä</p>
+      </MainBars>
     </div>
   )
 }
