@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch, Route, Link
 } from "react-router-dom"
 import { makeStyles } from '@material-ui/core/styles';

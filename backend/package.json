@@ -1,4 +1,5 @@
 {
+  "homepage": "http://Allupelaaja.github.io/React-sivu",
   "name": "backend",
   "version": "1.0.0",
   "description": "Project Backend",
@@ -9,8 +10,7 @@
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
     "start:test": "cross-env NODE_ENV=test node index.js",
     "build:ui": "rm -rf build && cd ../frontend && npm run build --prod && cp -r build ../backend/",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
     "logs:prod": "heroku logs --tail",
     "lint": "eslint ."
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "cross-env": "^7.0.2",
+    "gh-pages": "^3.1.0",
     "jest": "^26.6.2",
     "nodemon": "^2.0.6",
     "supertest": "^6.0.1"
