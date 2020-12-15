@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Switch, Route, Link
 } from "react-router-dom"
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +12,8 @@ import WelcomePage from './components/pages/WelcomePage'
 import Courses from './components/pages/Courses'
 
 const drawerWidth = 240;
+
+console.log("testing")
 
 const useStyles = makeStyles((theme) => ({
   root: {
