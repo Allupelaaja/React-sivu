@@ -1,4 +1,6 @@
-const welcomePage = () => {
+import React, { useState } from 'react'
+
+const WelcomePage = () => {
     return (
       <div>
         <h1>Welcome</h1>
@@ -7,5 +9,5 @@ const welcomePage = () => {
     )
   }
   
-  export default welcomePage;
+  export default WelcomePage;
   

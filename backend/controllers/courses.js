@@ -7,7 +7,7 @@ courseRouter.get('/', async (request, response) => {
 })
 
 courseRouter.get('/:id', async (request, response) => {
-    const id = req.params.id
+    const id = request.params.id
     const course = await Course.findById(id)
     response.json(course.toJSON(course))
 })
@@ -23,25 +23,24 @@ courseRouter.post('/', async (request, response, next) => {
         })
 
         const savedCourse = await course.save()
-        await user.save()
         response.status(201).json(savedCourse.toJSON())
     } catch (exception) {
         next(exception)
     }
 })
 
-courseRouter.delete('/:id', async (req, res, next) => {
+courseRouter.delete('/:id', async (request, response, next) => {
     try {
-        await Course.findByIdAndRemove(req.params.id)
-        res.status(204).end()
+        await Course.findByIdAndRemove(request.params.id)
+        response.status(204).end()
     } catch (exception) {
         next(exception)
     }
 })
 
-courseRouter.put('/:id', async (req, res, next) => {
-    const id = req.params.id
-    const body = req.body
+courseRouter.put('/:id', async (request, response, next) => {
+    const id = request.params.id
+    const body = request.body
 
     const course = {
         name: body.name,
@@ -51,7 +50,7 @@ courseRouter.put('/:id', async (req, res, next) => {
 
     try {
         await Course.findByIdAndUpdate(id, course, { new: true })
-        res.status(204).end()
+        response.status(204).end()
     } catch (exception) {
         next(exception)
     }

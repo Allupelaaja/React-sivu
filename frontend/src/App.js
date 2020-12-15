@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 import {
   BrowserRouter as Router,
   Switch, Route, Link
@@ -7,8 +7,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import FrontPage from './components/pages/frontPage'
-import WelcomePage from './components/pages/welcomePage'
+import FrontPage from './components/pages/FrontPage'
+import WelcomePage from './components/pages/WelcomePage'
+import Courses from './components/pages/Courses'
 
 const drawerWidth = 240;
 
@@ -82,6 +83,11 @@ const App = React.forwardRef((props, ref) => {
       component: <FrontPage />,
       text: "Front Page",
       link: "/frontpage",
+    },
+    {
+      component: <Courses />,
+      text: "Courses",
+      link: "/courses",
     }
   ]
 
@@ -104,6 +110,9 @@ const App = React.forwardRef((props, ref) => {
             </Route>
             <Route exact path="/frontpage">
               <FrontPage />
+            </Route>
+            <Route exact path="/courses">
+              <Courses />
             </Route>
           </Switch>
         </main>

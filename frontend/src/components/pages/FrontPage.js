@@ -1,4 +1,6 @@
-const frontPage = () => {
+import React, { useState } from 'react'
+
+const FrontPage = () => {
     return (
       <div>
         <h1>Front page</h1>
@@ -7,5 +9,5 @@ const frontPage = () => {
     )
   }
   
-  export default frontPage;
+  export default FrontPage;
   
