@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch, Route, Link
 } from "react-router-dom"
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,8 +12,6 @@ import WelcomePage from './components/pages/WelcomePage'
 import Courses from './components/pages/Courses'
 
 const drawerWidth = 240;
-
-console.log("testing")
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -107,15 +105,11 @@ const App = React.forwardRef((props, ref) => {
         <main>
           <div className={classes.drawerHeader} />
           <Switch>
-            <Route exact path="/">
-              <WelcomePage />
-            </Route>
-            <Route exact path="/frontpage">
-              <FrontPage />
-            </Route>
-            <Route exact path="/courses">
-              <Courses />
-            </Route>
+            {sideBarLinks.map((singleLink, index) => (
+              <Route exact path={singleLink.link}>
+                {singleLink.component}
+              </Route>
+            ))}
           </Switch>
         </main>
       </div>
