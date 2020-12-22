@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const courseSchema = mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        maxLength: 100
     },
     grade: {
         type: Number,
@@ -12,6 +13,10 @@ const courseSchema = mongoose.Schema({
     points: {
         type: Number,
         required: true
+    },
+    misc: {
+        type: String,
+        maxLength: 255
     }
 })
 

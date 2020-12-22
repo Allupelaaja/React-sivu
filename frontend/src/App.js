@@ -3,10 +3,16 @@ import {
   HashRouter as Router,
   Switch, Route, Link
 } from "react-router-dom"
+
 import { makeStyles } from '@material-ui/core/styles';
+
 import CssBaseline from '@material-ui/core/CssBaseline';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
+
 import FrontPage from './components/pages/FrontPage'
 import WelcomePage from './components/pages/WelcomePage'
 import Courses from './components/pages/Courses'
@@ -98,7 +104,11 @@ const App = React.forwardRef((props, ref) => {
         <AppBar position="fixed">
           <Toolbar>
             {sideBarLinks.map((singleLink, index) => (
-              <button><Link to={singleLink.link}>{singleLink.text}</Link></button>
+              <Box m={1} key={index}>
+                <Button variant="contained" size="large" key={index} to={singleLink.link} component={Link}>
+                  {singleLink.text}
+                </Button>
+              </Box>
             ))}
           </Toolbar>
         </AppBar>
@@ -106,7 +116,7 @@ const App = React.forwardRef((props, ref) => {
           <div className={classes.drawerHeader} />
           <Switch>
             {sideBarLinks.map((singleLink, index) => (
-              <Route exact path={singleLink.link}>
+              <Route key={index} exact path={singleLink.link}>
                 {singleLink.component}
               </Route>
             ))}

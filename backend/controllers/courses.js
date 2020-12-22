@@ -20,6 +20,7 @@ courseRouter.post('/', async (request, response, next) => {
             name: body.name,
             grade: body.grade,
             points: body.points,
+            misc: body.misc
         })
 
         const savedCourse = await course.save()
@@ -46,6 +47,7 @@ courseRouter.put('/:id', async (request, response, next) => {
         name: body.name,
         grade: body.grade,
         points: body.points,
+        misc: body.misc
     }
 
     try {
