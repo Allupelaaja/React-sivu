@@ -56,10 +56,10 @@ function CourseForm(props) {
             }
             try {
                 const result = await courseService.update(course.id, updatedCourse)
-                console.log(result + " updated to database")
+                console.log(result.data, "updated to database")
                 const updatedCourses = [...courses]
                 updatedCourses.splice(updatedCourses.indexOf(course), 1)
-                updatedCourses.push(updatedCourse)
+                updatedCourses.push(result.data)
                 setCourses(updatedCourses)
                 closeWindow()
             } catch (exception) {
@@ -76,9 +76,9 @@ function CourseForm(props) {
             }
             try {
                 const result = await courseService.create(newCourse)
-                console.log(result + " created in database")
+                console.log(result.data, "created in database")
                 const newCourses = [...courses]
-                newCourses.push(newCourse)
+                newCourses.push(result.data)
                 setCourses(newCourses)
                 closeWindow()
             } catch (exception) {
@@ -142,6 +142,17 @@ function CourseForm(props) {
                         value={misc}
                         onChange={misc => setMisc(misc.target.value)}
                         inputProps={{ maxLength: 255 }}
+                    />
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        required
+                        id="form-password"
+                        label="Password"
+                        fullWidth
+                        // value={name}
+                        // onChange={name => setName(name.target.value)}
+                        // inputProps={{ maxLength: 100 }}
                     />
                 </DialogContent>
                 <DialogActions>

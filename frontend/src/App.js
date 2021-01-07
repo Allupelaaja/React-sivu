@@ -8,14 +8,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 
+//Core
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';
 
+//Components
 import FrontPage from './components/pages/FrontPage'
 import WelcomePage from './components/pages/WelcomePage'
 import Courses from './components/pages/Courses'
+import Footer from './components/Footer'
 
 const drawerWidth = 240;
 
@@ -82,19 +85,19 @@ const App = React.forwardRef((props, ref) => {
   const sideBarLinks = [
     {
       component: <WelcomePage />,
-      text: "Welcome Page",
+      text: "About me",
       link: "/"
-    },
-    {
-      component: <FrontPage />,
-      text: "Front Page",
-      link: "/frontpage",
     },
     {
       component: <Courses />,
       text: "Courses",
       link: "/courses",
-    }
+    },
+    {
+      component: <FrontPage />,
+      text: "Projects",
+      link: "/projects",
+    },
   ]
 
   return (
@@ -105,7 +108,7 @@ const App = React.forwardRef((props, ref) => {
           <Toolbar>
             {sideBarLinks.map((singleLink, index) => (
               <Box m={1} key={index}>
-                <Button variant="contained" size="large" key={index} to={singleLink.link} component={Link}>
+                <Button variant="contained"q key={index} to={singleLink.link} component={Link}>
                   {singleLink.text}
                 </Button>
               </Box>
@@ -123,6 +126,7 @@ const App = React.forwardRef((props, ref) => {
           </Switch>
         </main>
       </div>
+      <Footer/>
     </Router>
   )
 })

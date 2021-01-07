@@ -15,7 +15,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 //Core
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -24,8 +23,28 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 const useStyles = makeStyles((theme) => ({
+    header: {
+        textAlign: 'center'
+    },
+    pageText: {
+        textAlign: 'justify'
+    },
     list: {
         width: 350
+    },
+    page: {
+        width: '75%',
+        margin: '0 auto',
+        paddingLeft: '15px',
+        paddingRight: '15px',
+        borderRadius: '25px',
+        backgroundColor: 'white',
+    },
+    backgroundPage: {
+        backgroundColor: 'lightgrey',
+        position: 'absolute',
+        width: '100%',
+        height: '-webkit-fill-available',
     },
 }));
 
@@ -75,44 +94,45 @@ const Courses = () => {
     }, [])
 
     return (
-        <div>
-            <h1>Courses</h1>
-            <div>
-                <Button variant="outlined" onClick={handleClickOpen}>Add new course<AddIcon /></Button>
-                <CourseForm open={open} onClose={handleClose} isUpdating={isUpdating} course={updatingCourse} courses={courses} setCourses={setCourses}/>
-            </div>
-            <div>
-                <h2>List of courses</h2>
-                {courses.map(course =>
-                    <div key={course.id}>
-                        <List>
-                            <ListItem button onClick={((e) => handleModify(e, course))} className={classes.list}>
-                                <ListItemIcon>
-                                    <NoteIcon />
-                                </ListItemIcon>
-                                <ListItemText
-                                    primary={course.name}
-                                    secondary={
-                                        <React.Fragment>
-                                            Grade: {course.grade}
-                                            <br />
-                                            Study points: {course.points}
-                                            <br />
-                                            Info: {course.misc}
-                                        </React.Fragment>}
-                                />
-                                <ListItemSecondaryAction>
-                                    <IconButton edge="end" aria-label="delete" onClick={((e) => handleDelete(e, course))}>
-                                        <DeleteIcon />
-                                    </IconButton>
-                                </ListItemSecondaryAction>
-                            </ListItem>
-                        </List>
+        <div className={classes.backgroundPage}>
+            <div className={classes.page}>
+                <h1 className={classes.header}>Courses</h1>
+                <div>
+                    <h2>List of completed courses:</h2>
+                    <div>
+                        <Button variant="outlined" onClick={handleClickOpen}>Add new course<AddIcon /></Button>
+                        <CourseForm open={open} onClose={handleClose} isUpdating={isUpdating} course={updatingCourse} courses={courses} setCourses={setCourses} />
                     </div>
-                )}
+                    {courses.map(course =>
+                        <div key={course.id}>
+                            <List>
+                                <ListItem button onClick={((e) => handleModify(e, course))} className={classes.list}>
+                                    <ListItemIcon>
+                                        <NoteIcon />
+                                    </ListItemIcon>
+                                    <ListItemText
+                                        primary={course.name}
+                                        secondary={
+                                            <React.Fragment>
+                                                Grade: {course.grade}
+                                                <br />
+                                            Study points: {course.points}
+                                                <br />
+                                            Info: {course.misc}
+                                            </React.Fragment>}
+                                    />
+                                    <ListItemSecondaryAction>
+                                        <IconButton edge="end" aria-label="delete" onClick={((e) => handleDelete(e, course))}>
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    </ListItemSecondaryAction>
+                                </ListItem>
+                            </List>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
-
     )
 }
 
