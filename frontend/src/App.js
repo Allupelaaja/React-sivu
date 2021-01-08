@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
+// import React, { useState, useEffect, useRef } from 'react'
 import {
   HashRouter as Router,
   Switch, Route, Link
@@ -108,7 +109,7 @@ const App = React.forwardRef((props, ref) => {
           <Toolbar>
             {sideBarLinks.map((singleLink, index) => (
               <Box m={1} key={index}>
-                <Button variant="contained"q key={index} to={singleLink.link} component={Link}>
+                <Button variant="contained" key={index} to={singleLink.link} component={Link}>
                   {singleLink.text}
                 </Button>
               </Box>

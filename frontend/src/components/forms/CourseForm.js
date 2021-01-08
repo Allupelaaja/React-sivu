@@ -45,7 +45,7 @@ function CourseForm(props) {
         resetInput()
     }
 
-    async function handleSubmit(event) {
+    const handleSubmit = async (event) => {
         if (isUpdating) {
             event.preventDefault()
             const updatedCourse = {
@@ -82,7 +82,6 @@ function CourseForm(props) {
                 setCourses(newCourses)
                 closeWindow()
             } catch (exception) {
-                console.log(newCourse)
                 console.log(exception)
             }
         }
@@ -142,17 +141,6 @@ function CourseForm(props) {
                         value={misc}
                         onChange={misc => setMisc(misc.target.value)}
                         inputProps={{ maxLength: 255 }}
-                    />
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        required
-                        id="form-password"
-                        label="Password"
-                        fullWidth
-                        // value={name}
-                        // onChange={name => setName(name.target.value)}
-                        // inputProps={{ maxLength: 100 }}
                     />
                 </DialogContent>
                 <DialogActions>
