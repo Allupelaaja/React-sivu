@@ -2,7 +2,7 @@ import React from 'react'
 // import React, { useState, useEffect, useRef } from 'react'
 import {
   HashRouter as Router,
-  Switch, Route, Link
+  Switch, Route
 } from "react-router-dom"
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,71 +12,45 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 //Core
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import Box from '@material-ui/core/Box';
 
 //Components
 import FrontPage from './components/pages/FrontPage'
 import WelcomePage from './components/pages/WelcomePage'
 import Courses from './components/pages/Courses'
 import Footer from './components/Footer'
+import Header from './components/Header'
 
-const drawerWidth = 240;
+//Icons
+import PersonIcon from '@material-ui/icons/Person';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
+import WorkIcon from '@material-ui/icons/Work';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  hide: {
-    display: 'none',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
+  page: {
+    width: '75%',
+    margin: '0 auto',
+    paddingLeft: '15px',
+    paddingRight: '15px',
+    borderRadius: '25px',
+    backgroundColor: 'white',
+    marginTop: '30px',
+    marginBottom: '80px',
   },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
+  backgroundPage: {
+    backgroundColor: 'lightgrey',
+    position: 'absolute',
+    width: '100%',
+    minHeight: '90%',
   },
 }));
 
@@ -87,17 +61,20 @@ const App = React.forwardRef((props, ref) => {
     {
       component: <WelcomePage />,
       text: "About me",
-      link: "/"
+      link: "/",
+      icon: <PersonIcon />,
     },
     {
       component: <Courses />,
       text: "Courses",
       link: "/courses",
+      icon: <LibraryBooksIcon />,
     },
     {
       component: <FrontPage />,
       text: "Projects",
       link: "/projects",
+      icon: <WorkIcon />,
     },
   ]
 
@@ -107,27 +84,25 @@ const App = React.forwardRef((props, ref) => {
         <CssBaseline />
         <AppBar position="fixed">
           <Toolbar>
-            {sideBarLinks.map((singleLink, index) => (
-              <Box m={1} key={index}>
-                <Button variant="contained" key={index} to={singleLink.link} component={Link}>
-                  {singleLink.text}
-                </Button>
-              </Box>
-            ))}
+            <Header sideBarLinks={sideBarLinks} />
           </Toolbar>
         </AppBar>
         <main>
           <div className={classes.drawerHeader} />
-          <Switch>
-            {sideBarLinks.map((singleLink, index) => (
-              <Route key={index} exact path={singleLink.link}>
-                {singleLink.component}
-              </Route>
-            ))}
-          </Switch>
+          <div className={classes.backgroundPage}>
+            <div className={classes.page}>
+              <Switch>
+                {sideBarLinks.map((singleLink, index) => (
+                  <Route key={index} exact path={singleLink.link}>
+                    {singleLink.component}
+                  </Route>
+                ))}
+              </Switch>
+            </div>
+          </div>
+          <Footer />
         </main>
       </div>
-      <Footer/>
     </Router>
   )
 })

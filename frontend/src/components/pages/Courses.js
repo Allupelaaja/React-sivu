@@ -33,20 +33,6 @@ const useStyles = makeStyles((theme) => ({
     list: {
         width: 350
     },
-    page: {
-        width: '75%',
-        margin: '0 auto',
-        paddingLeft: '15px',
-        paddingRight: '15px',
-        borderRadius: '25px',
-        backgroundColor: 'white',
-    },
-    backgroundPage: {
-        backgroundColor: 'lightgrey',
-        position: 'absolute',
-        width: '100%',
-        height: '-webkit-fill-available',
-    },
 }));
 
 const Courses = () => {
@@ -141,52 +127,50 @@ const Courses = () => {
     }
 
     return (
-        <div className={classes.backgroundPage}>
-            <div className={classes.page}>
-                <h1 className={classes.header}>Courses</h1>
+        <div>
+            <h1 className={classes.header}>Courses</h1>
+            <div>
+                <h2>List of completed courses:</h2>
                 <div>
-                    <h2>List of completed courses:</h2>
-                    <div>
-                        {user === null ?
-                            <></> :
-                            <p>Logged in as {user.username}</p>
-                        }
-                        {user === null ?
-                            <></> :
-                            <Button variant="outlined" onClick={handleLogout}>Logout</Button>
-                        }
-                        <Button variant="outlined" onClick={handleClickOpen}>Add new course<AddIcon /></Button>
-                        <PasswordForm open={passwordOpen} onClose={handlePasswordClose} user={user} setUser={setUser} />
-                        <CourseForm open={open} onClose={handleClose} isUpdating={isUpdating} course={updatingCourse} courses={courses} setCourses={setCourses} />
-                    </div>
-                    {courses === undefined ? <></> : courses.map(course =>
-                        <div key={course.id}>
-                            <List>
-                                <ListItem button onClick={((e) => handleModify(e, course))} className={classes.list}>
-                                    <ListItemIcon>
-                                        <NoteIcon />
-                                    </ListItemIcon>
-                                    <ListItemText
-                                        primary={course.name}
-                                        secondary={
-                                            <React.Fragment>
-                                                Grade: {course.grade}
-                                                <br />
-                                            Study points: {course.points}
-                                                <br />
-                                            Info: {course.misc}
-                                            </React.Fragment>}
-                                    />
-                                    <ListItemSecondaryAction>
-                                        <IconButton edge="end" aria-label="delete" onClick={((e) => handleDelete(e, course))}>
-                                            <DeleteIcon />
-                                        </IconButton>
-                                    </ListItemSecondaryAction>
-                                </ListItem>
-                            </List>
-                        </div>
-                    )}
+                    {user === null ?
+                        <></> :
+                        <p>Logged in as {user.username}</p>
+                    }
+                    {user === null ?
+                        <></> :
+                        <Button variant="outlined" onClick={handleLogout}>Logout</Button>
+                    }
+                    <Button variant="outlined" onClick={handleClickOpen}>Add new course<AddIcon /></Button>
+                    <PasswordForm open={passwordOpen} onClose={handlePasswordClose} user={user} setUser={setUser} />
+                    <CourseForm open={open} onClose={handleClose} isUpdating={isUpdating} course={updatingCourse} courses={courses} setCourses={setCourses} />
                 </div>
+                {courses === undefined ? <></> : courses.map(course =>
+                    <div key={course.id}>
+                        <List>
+                            <ListItem button onClick={((e) => handleModify(e, course))} className={classes.list}>
+                                <ListItemIcon>
+                                    <NoteIcon />
+                                </ListItemIcon>
+                                <ListItemText
+                                    primary={course.name}
+                                    secondary={
+                                        <React.Fragment>
+                                            Grade: {course.grade}
+                                            <br />
+                                            Course credit amount: {course.points}
+                                            <br />
+                                            {course.misc !== undefined ? "Info: " + course.misc : <></>}
+                                        </React.Fragment>}
+                                />
+                                <ListItemSecondaryAction>
+                                    <IconButton edge="end" aria-label="delete" onClick={((e) => handleDelete(e, course))}>
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </ListItemSecondaryAction>
+                            </ListItem>
+                        </List>
+                    </div>
+                )}
             </div>
         </div>
     )
