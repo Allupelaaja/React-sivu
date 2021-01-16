@@ -1,5 +1,6 @@
 const courseRouter = require('express').Router()
 const Course = require('../models/course')
+const jwt = require('jsonwebtoken')
 
 courseRouter.get('/', async (request, response) => {
     const courses = await Course.find({})
@@ -16,6 +17,11 @@ courseRouter.post('/', async (request, response, next) => {
     const body = request.body
 
     try {
+        const decodedToken = jwt.verify(request.token, process.env.SECRET)
+        if (!decodedToken) {
+            return response.status(401).json({ error: 'token missing or invalid' })
+        }
+
         const course = new Course({
             name: body.name,
             grade: body.grade,
@@ -32,6 +38,11 @@ courseRouter.post('/', async (request, response, next) => {
 
 courseRouter.delete('/:id', async (request, response, next) => {
     try {
+        const decodedToken = jwt.verify(request.token, process.env.SECRET)
+        if (!decodedToken) {
+            return response.status(401).json({ error: 'token missing or invalid' })
+        }
+
         await Course.findByIdAndRemove(request.params.id)
         response.status(204).end()
     } catch (exception) {
@@ -51,11 +62,16 @@ courseRouter.put('/:id', async (request, response, next) => {
     }
 
     try {
+        const decodedToken = jwt.verify(request.token, process.env.SECRET)
+        if (!decodedToken) {
+            return response.status(401).json({ error: 'token missing or invalid' })
+        }
+
         await Course.findByIdAndUpdate(id, course, { new: true })
         response.status(204).end()
     } catch (exception) {
         next(exception)
     }
-});
+})
 
 module.exports = courseRouter

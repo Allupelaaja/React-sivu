@@ -1,24 +1,26 @@
 import React from 'react'
 
 //Core
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-  header: {
-    textAlign: 'center'
-  },
-  pageText: {
-    textAlign: 'justify'
-  },
-}));
+import { makeStyles, Typography } from '@material-ui/core'
+import { useTheme } from '@material-ui/core/styles';
 
 const WelcomePage = () => {
-  const classes = useStyles();
+  const customTheme = useTheme()
+  const useStyles = makeStyles((theme) => ({
+    header: {
+      textAlign: 'center'
+    },
+    pageText: {
+      textAlign: 'justify'
+    },
+  }))
+
+  const classes = useStyles()
 
   return (
        <div>
-          <h1 className={classes.header}>About me</h1>
-        <p className={classes.pageText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend fermentum nisl vel volutpat. Donec sit amet pulvinar libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Suspendisse id lacinia metus. Curabitur a metus ut mi dictum placerat sed nec tortor. Donec in nisl sodales, vulputate nisl a, faucibus nibh. Aenean gravida justo non sem tincidunt, ac finibus nisi pulvinar. In ac nunc in lectus scelerisque sollicitudin. Duis tempus neque vel magna porttitor malesuada. Aenean in convallis diam. Vivamus eget odio vel sem finibus elementum vel sed magna. Vestibulum pharetra ligula at ultricies ullamcorper. Duis sagittis nisl finibus lacus hendrerit pharetra. Maecenas nec sem eu massa accumsan fringilla sit amet at mauris.
+          <Typography variant='h4' className={classes.header}>About me</Typography>
+        <Typography className={classes.pageText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eleifend fermentum nisl vel volutpat. Donec sit amet pulvinar libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam erat volutpat. Suspendisse id lacinia metus. Curabitur a metus ut mi dictum placerat sed nec tortor. Donec in nisl sodales, vulputate nisl a, faucibus nibh. Aenean gravida justo non sem tincidunt, ac finibus nisi pulvinar. In ac nunc in lectus scelerisque sollicitudin. Duis tempus neque vel magna porttitor malesuada. Aenean in convallis diam. Vivamus eget odio vel sem finibus elementum vel sed magna. Vestibulum pharetra ligula at ultricies ullamcorper. Duis sagittis nisl finibus lacus hendrerit pharetra. Maecenas nec sem eu massa accumsan fringilla sit amet at mauris.
 
     Nunc et ligula magna. Aliquam erat volutpat. Aliquam placerat pellentesque velit, nec bibendum risus iaculis in. Nullam vehicula ante sit amet augue scelerisque, in gravida lectus posuere. Nunc ut convallis massa. Vivamus in pretium quam, vel congue turpis. Morbi fringilla ultricies magna, vel ornare nibh tempus maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas id accumsan dui, at ullamcorper lectus. Mauris lobortis sem eros, quis ultricies dui congue in. Nam placerat ipsum quis turpis vulputate dapibus.
 
@@ -74,9 +76,9 @@ const WelcomePage = () => {
 
     Morbi neque metus, imperdiet at ex vestibulum, posuere semper erat. Nunc hendrerit mauris nec elit vulputate dapibus. Praesent eget tortor lobortis risus imperdiet aliquam. Praesent sagittis sapien et sagittis ornare. Praesent ac neque vitae enim maximus cursus. Cras eu congue turpis. Vivamus euismod gravida lectus. Ut in odio non massa pharetra maximus. Fusce eros ligula, accumsan a imperdiet quis, luctus quis diam. Donec mattis enim vitae nisi fermentum laoreet. Aenean rhoncus nulla et lectus ullamcorper, ac vestibulum lorem volutpat.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi urna, lobortis id elit sit amet, luctus fringilla massa. Phasellus aliquam velit sagittis scelerisque suscipit. Nunc eget faucibus nisi. Sed quis est finibus, euismod elit et, viverra turpis. Donec posuere eros nunc, vitae ultricies magna pulvinar eu. Nunc varius mi a feugiat blandit. Curabitur semper velit in erat rhoncus, fringilla elementum quam suscipit. Praesent placerat faucibus tristique.</p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi urna, lobortis id elit sit amet, luctus fringilla massa. Phasellus aliquam velit sagittis scelerisque suscipit. Nunc eget faucibus nisi. Sed quis est finibus, euismod elit et, viverra turpis. Donec posuere eros nunc, vitae ultricies magna pulvinar eu. Nunc varius mi a feugiat blandit. Curabitur semper velit in erat rhoncus, fringilla elementum quam suscipit. Praesent placerat faucibus tristique.</Typography>
        </div>
   )
 }
 
-export default WelcomePage;
+export default WelcomePage

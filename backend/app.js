@@ -16,15 +16,23 @@ app.use(express.json())
 app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 
-app.use(express.static('public'));
+app.use(express.static('public'))
 
 app.use('/api/courses', courseRouter)
 app.use('/api/users', userRouter)
 app.use('/api/login', loginRouter)
 
+app.get('/api', (req, res) => {
+  res.sendFile(path.join(__dirname, '/apiPage.html'))
+})
+
+app.get('/cv', (req, res) => {
+  res.sendFile(path.join(__dirname, '/resources/CV.pdf'))
+})
+
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/index.html'));
-  });
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+  })
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

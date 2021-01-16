@@ -5,59 +5,64 @@ import {
   Switch, Route
 } from "react-router-dom"
 
-import { makeStyles } from '@material-ui/core/styles';
+import { createMuiTheme, responsiveFontSizes, makeStyles, ThemeProvider } from '@material-ui/core/styles'
 
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 //Core
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import { AppBar, Toolbar, Box } from '@material-ui/core'
 
 //Components
-import FrontPage from './components/pages/FrontPage'
+import Projects from './components/pages/Projects'
 import WelcomePage from './components/pages/WelcomePage'
 import Courses from './components/pages/Courses'
 import Footer from './components/Footer'
 import Header from './components/Header'
 
 //Icons
-import PersonIcon from '@material-ui/icons/Person';
-import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
-import WorkIcon from '@material-ui/icons/Work';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-  },
-  page: {
-    width: '75%',
-    margin: '0 auto',
-    paddingLeft: '15px',
-    paddingRight: '15px',
-    borderRadius: '25px',
-    backgroundColor: 'white',
-    marginTop: '30px',
-    marginBottom: '80px',
-  },
-  backgroundPage: {
-    backgroundColor: 'lightgrey',
-    position: 'absolute',
-    width: '100%',
-    minHeight: '90%',
-  },
-}));
+import PersonIcon from '@material-ui/icons/Person'
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
+import WorkIcon from '@material-ui/icons/Work'
 
 const App = React.forwardRef((props, ref) => {
-  const classes = useStyles();
+  let customTheme = createMuiTheme({
+    palette: {
+      type: 'dark',
+    },
+  })
+  customTheme = responsiveFontSizes(customTheme)
+  
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+    },
+    drawerHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      padding: customTheme.spacing(0, 1),
+      ...customTheme.mixins.toolbar,
+      justifyContent: 'flex-end',
+    },
+    page: {
+      width: '75%',
+      margin: '0 auto',
+      padding: '30px',
+      borderRadius: '25px',
+      backgroundColor: customTheme.palette.background.paper,
+      marginTop: '30px',
+      marginBottom: '80px',
+    },
+    backgroundPage: {
+      backgroundColor: customTheme.palette.background.default,
+      position: 'absolute',
+      width: '100%',
+      minHeight: '90%',
+    },
+  }))
+  
+  const classes = useStyles()
 
-  const sideBarLinks = [
+  const headerLinks = [
     {
       component: <WelcomePage />,
       text: "About me",
@@ -71,7 +76,7 @@ const App = React.forwardRef((props, ref) => {
       icon: <LibraryBooksIcon />,
     },
     {
-      component: <FrontPage />,
+      component: <Projects />,
       text: "Projects",
       link: "/projects",
       icon: <WorkIcon />,
@@ -79,31 +84,36 @@ const App = React.forwardRef((props, ref) => {
   ]
 
   return (
-    <Router>
-      <div className={classes.root}>
-        <CssBaseline />
-        <AppBar position="fixed">
-          <Toolbar>
-            <Header sideBarLinks={sideBarLinks} />
-          </Toolbar>
-        </AppBar>
-        <main>
-          <div className={classes.drawerHeader} />
-          <div className={classes.backgroundPage}>
-            <div className={classes.page}>
-              <Switch>
-                {sideBarLinks.map((singleLink, index) => (
-                  <Route key={index} exact path={singleLink.link}>
-                    {singleLink.component}
-                  </Route>
-                ))}
-              </Switch>
+    <ThemeProvider theme={customTheme}>
+      <CssBaseline />
+      <Router>
+        <div className={classes.root}>
+          <AppBar position="fixed">
+            <Toolbar>
+              <Header headerLinks={headerLinks} />
+            </Toolbar>
+          </AppBar>
+          <main>
+            <div className={classes.drawerHeader} />
+            <div className={classes.backgroundPage}>
+              <div className={classes.page}>
+                <Switch>
+                  {headerLinks.map((singleLink, index) => (
+                    <Route key={index} exact path={singleLink.link}>
+                      {singleLink.component}
+                    </Route>
+                  ))}
+                </Switch>
+              </div>
             </div>
-          </div>
-          <Footer />
-        </main>
-      </div>
-    </Router>
+            
+            <Box bgcolor='red'>
+            <Footer />
+            </Box>
+          </main>
+        </div>
+      </Router>
+    </ThemeProvider>
   )
 })
 

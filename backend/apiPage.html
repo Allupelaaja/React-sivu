@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Aleksi Heikkilä Courses API</title>
+</head>
+
+<body>
+  <div>
+    <h1>Courses API</h1>
+    <br>
+    <h2>GET all</h2>
+    <a
+      href="https://alekshei-portfolio.herokuapp.com/api/courses">https://alekshei-portfolio.herokuapp.com/api/courses</a>
+    <br><br>
+    <h2>POST (requires login token)</h2>
+    <p>https://alekshei-portfolio.herokuapp.com/api/courses</p>
+    <p>Example body:</p>
+    <pre>
+      <code>
+        {
+          "name": "course name",
+          "grade": 5,
+          "points": 10,
+          "misc": "extra information"
+        }
+      </code>
+    </pre>
+    <h2>GET by id</h2>
+    <p>https://alekshei-portfolio.herokuapp.com/api/courses/id</p>
+    <br>
+    <h2>PUT (requires login token)</h2>
+    <p>https://alekshei-portfolio.herokuapp.com/api/courses/id</p>
+    <p>Example body:</p>
+    <pre>
+      <code>
+        {
+          "name": "course name",
+          "grade": 5,
+          "points": 10,
+          "misc": "extra information"
+        }
+      </code>
+    </pre>
+    <h2>DELETE (requires login token)</h2>
+    <p>https://alekshei-portfolio.herokuapp.com/api/courses/id</p>
+  </div>
+</body>
+
+</html>

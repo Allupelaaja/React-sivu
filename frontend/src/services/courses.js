@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const baseUrl = '/api/courses';
+const baseUrl = '/api/courses'
 
 let token = null
 
@@ -8,7 +8,7 @@ const setToken = newToken => {
   token = `bearer ${newToken}`
 }
 
-const getAll = async () => await axios.get(baseUrl);
+const getAll = async () => await axios.get(baseUrl)
 
 const getById = async (id) => await axios.put(`${baseUrl}/${id}`)
 
@@ -46,4 +46,4 @@ export default {
   update,
   deleteItem,
   setToken
-};
+}

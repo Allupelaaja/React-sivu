@@ -6,15 +6,10 @@ import loginService from '../../services/login'
 import courseService from '../../services/courses'
 
 //Core
-import Button from '@material-ui/core/Button';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import TextField from '@material-ui/core/TextField';
+import { Button, DialogTitle, Dialog, DialogActions, DialogContent, TextField, Typography } from '@material-ui/core'
 
 const PasswordForm = (props) => {
-    const { onClose, open, user, setUser } = props;
+    const { onClose, open, setUser } = props
     const [password, setPassword] = useState()
     const [username, setUsername] = useState()
 
@@ -65,7 +60,7 @@ const PasswordForm = (props) => {
     return (
         <Dialog onClose={closeWindow} aria-labelledby="simple-dialog-title" open={open}>
             <form onSubmit={handleLogin}>
-                <DialogTitle id="simple-dialog-title">Please login to modify courses</DialogTitle>
+                <DialogTitle id="simple-dialog-title"><Typography>Please login to modify courses</Typography></DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus
@@ -90,8 +85,8 @@ const PasswordForm = (props) => {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={closeWindow} color="primary">Cancel</Button>
-                    <Button type="submit" color="primary">Login</Button>
+                    <Button onClick={closeWindow}><Typography>Cancel</Typography></Button>
+                    <Button type="submit"><Typography>Login</Typography></Button>
                 </DialogActions>
             </form>
         </Dialog>

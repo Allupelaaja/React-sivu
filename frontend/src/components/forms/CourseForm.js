@@ -5,16 +5,10 @@ import React, { useState, useEffect } from 'react'
 import courseService from '../../services/courses'
 
 //Core
-import Button from '@material-ui/core/Button';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/MenuItem';
+import { Button, DialogTitle, Dialog, DialogActions, DialogContent, TextField, MenuItem, Typography } from '@material-ui/core'
 
 function CourseForm(props) {
-    const { onClose, open, course, isUpdating, courses, setCourses } = props;
+    const { onClose, open, course, isUpdating, courses, setCourses } = props
     const [name, setName] = useState()
     const [grade, setGrade] = useState()
     const [points, setPoints] = useState()
@@ -29,7 +23,7 @@ function CourseForm(props) {
         } else {
             resetInput()
         }
-    }, [isUpdating])
+    }, [isUpdating, course])
 
     const grades = [0, 1, 2, 3, 4, 5]
 
@@ -90,7 +84,7 @@ function CourseForm(props) {
     return (
         <Dialog onClose={closeWindow} aria-labelledby="simple-dialog-title" open={open}>
             <form onSubmit={handleSubmit}>
-                <DialogTitle id="simple-dialog-title">Submit new course</DialogTitle>
+                <DialogTitle id="simple-dialog-title"><Typography>Submit new course</Typography></DialogTitle>
                 <DialogContent>
                     <TextField
                         autoFocus
@@ -144,11 +138,11 @@ function CourseForm(props) {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={closeWindow} color="primary">Cancel</Button>
+                    <Button onClick={closeWindow}><Typography>Cancel</Typography></Button>
                     {
                         isUpdating ?
-                            <Button type="submit" color="primary">Update</Button> :
-                            <Button type="submit" color="primary">Submit</Button>
+                            <Button type="submit"><Typography>Update</Typography></Button> :
+                            <Button type="submit"><Typography>Submit</Typography></Button>
                     }
                 </DialogActions>
             </form>
