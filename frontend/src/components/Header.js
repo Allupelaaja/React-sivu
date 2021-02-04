@@ -79,10 +79,12 @@ const Header = (props) => {
             onClose={handleMenuClose}
           >
             {links.map((singleLink, index) => (
-              <MenuItem key={index} onClick={handleMenuClose}>
-                <a href={singleLink.href} target={singleLink.target}><Typography>{singleLink.text}</Typography></a>
-                <LaunchIcon />
-              </MenuItem>
+              <a style={{textDecoration: "none", color: "white"}} href={singleLink.href} target={singleLink.target}>
+                <MenuItem key={index} onClick={handleMenuClose}>
+                  <Typography>{singleLink.text}</Typography>
+                  <LaunchIcon />
+                </MenuItem>
+              </a>
             ))}
           </Menu>
         </div>

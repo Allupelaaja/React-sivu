@@ -2,7 +2,10 @@ import React from 'react'
 
 //Core
 import { makeStyles, Typography } from '@material-ui/core'
-import { useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles'
+
+//Icons
+import LaunchIcon from '@material-ui/icons/Launch'
 
 const Footer = () => {
     const customTheme = useTheme()
@@ -26,7 +29,7 @@ const Footer = () => {
     return (
         <div className={classes.page}>
             <Typography className={classes.text}>Made by Aleksi Heikkilä 2021</Typography>
-            <Typography className={classes.text}>Made with React using <a href="https://material-ui.com/" target="_blank" rel="noreferrer">Material-UI</a></Typography>
+            <Typography className={classes.text}>Made with React using <a style={{color: "white"}} href="https://material-ui.com/" target="_blank" rel="noreferrer">Material-UI</a></Typography><LaunchIcon />
         </div>
     )
 }

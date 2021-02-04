@@ -10,7 +10,7 @@ import { createMuiTheme, responsiveFontSizes, makeStyles, ThemeProvider } from '
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 //Core
-import { AppBar, Toolbar, Box } from '@material-ui/core'
+import { AppBar, Toolbar, Box, Container } from '@material-ui/core'
 
 //Components
 import Projects from './components/pages/Projects'
@@ -31,11 +31,8 @@ const App = React.forwardRef((props, ref) => {
     },
   })
   customTheme = responsiveFontSizes(customTheme)
-  
+
   const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-    },
     drawerHeader: {
       display: 'flex',
       alignItems: 'center',
@@ -52,14 +49,8 @@ const App = React.forwardRef((props, ref) => {
       marginTop: '30px',
       marginBottom: '80px',
     },
-    backgroundPage: {
-      backgroundColor: customTheme.palette.background.default,
-      position: 'absolute',
-      width: '100%',
-      minHeight: '90%',
-    },
   }))
-  
+
   const classes = useStyles()
 
   const headerLinks = [
@@ -95,20 +86,17 @@ const App = React.forwardRef((props, ref) => {
           </AppBar>
           <main>
             <div className={classes.drawerHeader} />
-            <div className={classes.backgroundPage}>
-              <div className={classes.page}>
-                <Switch>
-                  {headerLinks.map((singleLink, index) => (
-                    <Route key={index} exact path={singleLink.link}>
-                      {singleLink.component}
-                    </Route>
-                  ))}
-                </Switch>
-              </div>
-            </div>
-            
-            <Box bgcolor='red'>
-            <Footer />
+            <Container className={classes.page}>
+              <Switch>
+                {headerLinks.map((singleLink, index) => (
+                  <Route key={index} exact path={singleLink.link}>
+                    {singleLink.component}
+                  </Route>
+                ))}
+              </Switch>
+            </Container>
+            <Box>
+              <Footer />
             </Box>
           </main>
         </div>
