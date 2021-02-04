@@ -56,7 +56,7 @@ const App = React.forwardRef((props, ref) => {
   const headerLinks = [
     {
       component: <WelcomePage />,
-      text: "About me",
+      text: "About",
       link: "/",
       icon: <PersonIcon />,
     },
