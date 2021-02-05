@@ -18,7 +18,9 @@ import { makeStyles, Button, List, ListItem, ListItemText, IconButton, ListItemI
 import { useTheme } from '@material-ui/core/styles';
 
 const Courses = () => {
+    // eslint-disable-next-line no-unused-vars
     const customTheme = useTheme()
+    // eslint-disable-next-line no-unused-vars
     const useStyles = makeStyles((theme) => ({
         header: {
             textAlign: 'center'

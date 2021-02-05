@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 //Core
 import { makeStyles, Typography } from '@material-ui/core'
@@ -8,6 +8,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
 import { useTheme } from '@material-ui/core/styles';
+
+//Arrays
+import tabs from '../../resources/arrays/tabs.js'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -33,10 +36,12 @@ TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
   value: PropTypes.any.isRequired,
-};
+}
 
 const Projects = () => {
+  // eslint-disable-next-line no-unused-vars
   const customTheme = useTheme()
+  // eslint-disable-next-line no-unused-vars
   const useStyles = makeStyles((theme) => ({
     header: {
       textAlign: 'center'
@@ -44,6 +49,9 @@ const Projects = () => {
     pageText: {
       textAlign: 'justify'
     },
+    image: {
+      maxWidth: '450px',
+    }
   }))
 
   const classes = useStyles()
@@ -54,75 +62,7 @@ const Projects = () => {
     setValue(newValue);
   };
 
-  const tabs = [
-    {
-      year: "2017",
-      contents: [
-        {
-          text: "Unity-game",
-          tech: [
-            "C#"
-          ]
-        }
-      ],
-    },
-    {
-      year: "2018",
-      contents: [
-        {
-          text: "Food ordering service",
-          tech: [
-            "JavaScript", "HTML", "CSS", "SQL", "PHP"
-          ]
-        }
-      ],
-    },
-    {
-      year: "2019",
-      contents: [
-        {
-          text: "Property designer program",
-          tech: [
-            "Java", "SQL", "Jenkins", "Agilefant"
-          ]
-        },
-        {
-          text: "Event rating website",
-          tech: [
-            "JavaScript", "HTML", "CSS", "SQL", "REST"
-          ]
-        }
-      ],
-    },
-    {
-      year: "2020",
-      contents: [
-        {
-          text: "Blackjack mobile game",
-          tech: [
-            "Java", "XML", "Androidstudio", "REST"
-          ]
-        },
-        {
-          text: "'Insertradar' website for company",
-          tech: [
-            "JavaScript/React.js", "Node.js", "HTML", "CSS", "NoSQL", "REST", "Nektion"
-          ]
-        }
-      ],
-    },
-    {
-      year: "2021",
-      contents: [
-        {
-          text: "Personal website",
-          tech: [
-            "JavaScript/React.js", "Node.js", "HTML", "CSS", "NoSQL", "REST"
-          ]
-        },
-      ],
-    },
-  ]
+  
 
   return (
     <div>
@@ -147,8 +87,35 @@ const Projects = () => {
             <div key={entry}>
               <Typography variant='h5'>{entry.text}</Typography>
               <Typography>
-                <p>Description:</p>
-                <p>description here</p>
+                {/* Show link if it exists */}
+                {entry.link !== undefined ?
+                  <div>
+                    <a
+                      style={{ color: "white" }}
+                      href={entry.link} 
+                      target="_blank"
+                      rel="noreferrer">
+                      <Typography>Link</Typography>
+                    </a>
+                  </div>
+                  : <></>}
+                {/* Show images if they exist */}
+                {entry.img !== undefined ?
+                  <div>
+                    {entry.img.map((singleImg, index) => (
+                      <img key={index} className={classes.image}
+                        src={singleImg}
+                        alt="Image of project"
+                      />
+                    ))}
+                  </div>
+                  : <></>}
+                {/* Show description if it exists */}
+                {entry.desc !== undefined ?
+                  <div>
+                    <p>{entry.desc}</p>
+                  </div>
+                  : <></>}
                 <p>Tech used:</p>
                 <ul>
                   {entry.tech.map((tech) => (
@@ -160,18 +127,6 @@ const Projects = () => {
           ))}
         </TabPanel>
       ))}
-
-      {/* <Typography variant='h5'>Project 1</Typography>
-      <Typography>Project 1 text here</Typography>
-      <br/>
-      <Typography variant='h5'>Project 2</Typography>
-      <Typography>Project 2 text here</Typography>
-      <br/>
-      <Typography variant='h5'>Project 3</Typography>
-      <Typography>Project 3 text here</Typography>
-      <br/>
-      <Typography variant='h5'>Project 4</Typography>
-      <Typography>Project 4 text here</Typography> */}
     </div>
   )
 }

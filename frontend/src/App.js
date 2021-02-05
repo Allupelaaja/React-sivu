@@ -24,6 +24,7 @@ import PersonIcon from '@material-ui/icons/Person'
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
 import WorkIcon from '@material-ui/icons/Work'
 
+// eslint-disable-next-line no-unused-vars
 const App = React.forwardRef((props, ref) => {
   let customTheme = createMuiTheme({
     palette: {
@@ -32,6 +33,7 @@ const App = React.forwardRef((props, ref) => {
   })
   customTheme = responsiveFontSizes(customTheme)
 
+  // eslint-disable-next-line no-unused-vars
   const useStyles = makeStyles((theme) => ({
     drawerHeader: {
       display: 'flex',

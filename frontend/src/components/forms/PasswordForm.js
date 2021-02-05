@@ -1,5 +1,6 @@
 //React
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 //Services
 import loginService from '../../services/login'
@@ -9,9 +10,18 @@ import courseService from '../../services/courses'
 import { Button, DialogTitle, Dialog, DialogActions, DialogContent, TextField, Typography } from '@material-ui/core'
 
 const PasswordForm = (props) => {
+    // eslint-disable-next-line no-unused-vars
     const { onClose, open, user, setUser } = props
     const [password, setPassword] = useState()
     const [username, setUsername] = useState()
+
+    
+    PasswordForm.propTypes = {
+    onClose: PropTypes.func,
+    open: PropTypes.bool,
+    user: PropTypes.object,
+    setUser: PropTypes.func,
+  }
 
     useEffect(() => {
         resetInput()

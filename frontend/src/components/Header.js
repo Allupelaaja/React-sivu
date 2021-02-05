@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import PropTypes from 'prop-types'
 
 //Core
 import { makeStyles, Button, Box, Menu, MenuItem, Typography } from '@material-ui/core'
@@ -9,8 +10,13 @@ import { useTheme } from '@material-ui/core/styles';
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import LaunchIcon from '@material-ui/icons/Launch'
 
+//Arrays
+import links from '../resources/arrays/links.js'
+
 const Header = (props) => {
+  // eslint-disable-next-line no-unused-vars
   const customTheme = useTheme()
+  // eslint-disable-next-line no-unused-vars
   const useStyles = makeStyles((theme) => ({
     page: {
       display: 'block',
@@ -23,6 +29,10 @@ const Header = (props) => {
       alignItems: 'center',
     },
   }))
+
+  Header.propTypes = {
+    headerLinks: PropTypes.array,
+  }
 
   const classes = useStyles()
 
@@ -38,33 +48,10 @@ const Header = (props) => {
     setAnchorEl(null)
   }
 
-  const links = [
-    {
-      href: "https://github.com/Allupelaaja",
-      target: "_blank",
-      text: "Github",
-    },
-    {
-      href: "https://gitlab.com/Allupelaaja",
-      target: "_blank",
-      text: "Gitlab",
-    },
-    {
-      href: "https://alekshei-portfolio.herokuapp.com/cv",
-      target: "_blank",
-      text: "CV (Pdf)",
-    },
-    {
-      href: "https://alekshei-portfolio.herokuapp.com/api",
-      target: "_blank",
-      text: "Courses API",
-    },
-  ]
-
   return (
     <div className={classes.page}>
       <div>
-        <Typography align="center" marginTop="10px" variant='h4'>Aleksi Heikkilä's webpage</Typography>
+        <Typography align="center" variant='h4'>Aleksi Heikkilä&apos;s webpage</Typography>
       </div>
       <div className={classes.linkButtons}>
         {headerLinks.map((singleLink, index) => (

@@ -9,6 +9,7 @@ import LaunchIcon from '@material-ui/icons/Launch'
 
 const Footer = () => {
     const customTheme = useTheme()
+    // eslint-disable-next-line no-unused-vars
     const useStyles = makeStyles((theme) => ({
         page: {
             padding: '5px',

@@ -1,5 +1,6 @@
 //React
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 //Services
 import courseService from '../../services/courses'
@@ -13,6 +14,15 @@ function CourseForm(props) {
     const [grade, setGrade] = useState()
     const [points, setPoints] = useState()
     const [misc, setMisc] = useState()
+
+    CourseForm.propTypes = {
+        onClose: PropTypes.func,
+        open: PropTypes.bool,
+        course: PropTypes.object,
+        isUpdating: PropTypes.bool,
+        courses: PropTypes.array,
+        setCourses: PropTypes.func,
+    }
 
     useEffect(() => {
         if (course) {
@@ -49,7 +59,7 @@ function CourseForm(props) {
                 misc: misc
             }
             try {
-                const result = await courseService.update(course.id, updatedCourse)
+                await courseService.update(course.id, updatedCourse)
                 console.log(updatedCourse, "updated to database")
                 const updatedCourses = [...courses]
                 updatedCourses.splice(updatedCourses.indexOf(course), 1)
