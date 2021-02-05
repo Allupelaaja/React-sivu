@@ -37,7 +37,14 @@ const App = React.forwardRef((props, ref) => {
       display: 'flex',
       alignItems: 'center',
       padding: customTheme.spacing(0, 1),
-      ...customTheme.mixins.toolbar,
+      minHeight: '92px',
+      justifyContent: 'flex-end',
+    },
+    footer: {
+      display: 'flex',
+      alignItems: 'center',
+      padding: customTheme.spacing(0, 1),
+      minHeight: '34px',
       justifyContent: 'flex-end',
     },
     page: {
@@ -46,8 +53,6 @@ const App = React.forwardRef((props, ref) => {
       padding: '30px',
       // borderRadius: '25px',
       // backgroundColor: customTheme.palette.background.paper,
-      marginTop: '30px',
-      marginBottom: '80px',
     },
   }))
 
@@ -96,6 +101,7 @@ const App = React.forwardRef((props, ref) => {
               </Switch>
             </Container>
             <Box>
+              <div className={classes.footer} />
               <Footer />
             </Box>
           </main>
