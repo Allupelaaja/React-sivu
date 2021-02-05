@@ -44,8 +44,8 @@ const App = React.forwardRef((props, ref) => {
       width: '75%',
       margin: '0 auto',
       padding: '30px',
-      borderRadius: '25px',
-      backgroundColor: customTheme.palette.background.paper,
+      // borderRadius: '25px',
+      // backgroundColor: customTheme.palette.background.paper,
       marginTop: '30px',
       marginBottom: '80px',
     },
@@ -79,7 +79,7 @@ const App = React.forwardRef((props, ref) => {
       <CssBaseline />
       <Router>
         <div className={classes.root}>
-          <AppBar position="fixed">
+          <AppBar color="inherit" position="fixed">
             <Toolbar>
               <Header headerLinks={headerLinks} />
             </Toolbar>

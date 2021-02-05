@@ -10,7 +10,7 @@ courseRouter.get('/', async (request, response) => {
 courseRouter.get('/:id', async (request, response) => {
     const id = request.params.id
     const course = await Course.findById(id)
-    response.json(course.toJSON(course))
+    response.json(course.toJSON())
 })
 
 courseRouter.post('/', async (request, response, next) => {
@@ -67,8 +67,8 @@ courseRouter.put('/:id', async (request, response, next) => {
             return response.status(401).json({ error: 'token missing or invalid' })
         }
 
-        await Course.findByIdAndUpdate(id, course, { new: true })
-        response.status(204).end()
+        const savedCourse = await Course.findByIdAndUpdate(id, course, { new: true })
+        response.status(204).json(savedCourse.toJSON())
     } catch (exception) {
         next(exception)
     }

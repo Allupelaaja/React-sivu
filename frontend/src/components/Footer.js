@@ -12,7 +12,7 @@ const Footer = () => {
     const useStyles = makeStyles((theme) => ({
         page: {
             padding: '5px',
-            backgroundColor: theme.palette.primary.main,
+            backgroundColor: customTheme.palette.background.paper,
             position: 'fixed',
             bottom: '0',
             left: '0',

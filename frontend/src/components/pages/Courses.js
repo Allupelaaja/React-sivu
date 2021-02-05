@@ -27,12 +27,12 @@ const Courses = () => {
             textAlign: 'justify'
         },
         list: {
-            width: 350
+            maxWidth: "100%"
         },
     }))
 
     const classes = useStyles()
-    
+
     const [courses, setCourses] = useState([])
     const [open, setOpen] = useState(false)
     const [passwordOpen, setPasswordOpen] = useState(false)
@@ -44,6 +44,8 @@ const Courses = () => {
     useEffect(() => {
         const getCourses = async () => {
             const result = await courseService.getAll()
+            //Sorts by name
+            result.data.sort((a, b) => a.name.localeCompare(b.name))
             setCourses(result.data)
         }
         getCourses()
@@ -139,10 +141,10 @@ const Courses = () => {
                     <PasswordForm open={passwordOpen} onClose={handlePasswordClose} user={user} setUser={setUser} />
                     <CourseForm open={open} onClose={handleClose} isUpdating={isUpdating} course={updatingCourse} courses={courses} setCourses={setCourses} />
                 </div>
-                {courses === undefined ? <></> : courses.map(course =>
-                    <div key={course.id}>
-                        <List>
-                            <ListItem button onClick={((e) => handleModify(e, course))} className={classes.list}>
+                <List className={classes.list}>
+                    {courses === undefined ? <></> : courses.map(course =>
+                        <div key={course.id}>
+                            <ListItem button onClick={((e) => handleModify(e, course))}>
                                 <ListItemIcon>
                                     <NoteIcon />
                                 </ListItemIcon>
@@ -163,9 +165,9 @@ const Courses = () => {
                                     </IconButton>
                                 </ListItemSecondaryAction>
                             </ListItem>
-                        </List>
-                    </div>
-                )}
+                        </div>
+                    )}
+                </List>
             </div>
         </div>
     )

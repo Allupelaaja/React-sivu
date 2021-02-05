@@ -9,7 +9,7 @@ import courseService from '../../services/courses'
 import { Button, DialogTitle, Dialog, DialogActions, DialogContent, TextField, Typography } from '@material-ui/core'
 
 const PasswordForm = (props) => {
-    const { onClose, open, setUser } = props
+    const { onClose, open, user, setUser } = props
     const [password, setPassword] = useState()
     const [username, setUsername] = useState()
 

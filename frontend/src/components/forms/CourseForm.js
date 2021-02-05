@@ -50,10 +50,12 @@ function CourseForm(props) {
             }
             try {
                 const result = await courseService.update(course.id, updatedCourse)
-                console.log(result.data, "updated to database")
+                console.log(updatedCourse, "updated to database")
                 const updatedCourses = [...courses]
                 updatedCourses.splice(updatedCourses.indexOf(course), 1)
-                updatedCourses.push(result.data)
+                updatedCourses.push(updatedCourse)
+                //Sorts by name
+                updatedCourses.sort((a, b) => a.name.localeCompare(b.name))
                 setCourses(updatedCourses)
                 closeWindow()
             } catch (exception) {
