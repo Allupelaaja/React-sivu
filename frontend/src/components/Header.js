@@ -22,7 +22,7 @@ const Header = (props) => {
     page: {
       display: 'block',
       alignItems: 'center',
-      [theme.breakpoints.up('xs')]: {
+      [theme.breakpoints.up('sm')]: {
         marginLeft: 'auto',
         marginRight: 'auto',
       },

@@ -50,7 +50,7 @@ const App = React.forwardRef((props, ref) => {
       justifyContent: 'flex-end',
     },
     page: {
-      [theme.breakpoints.up('xs')]: {
+      [theme.breakpoints.up('sm')]: {
         width: '75%',
         margin: '0 auto',
         padding: '30px',

@@ -51,7 +51,10 @@ const Projects = () => {
     },
     image: {
       maxWidth: '450px',
-    }
+      [theme.breakpoints.down('xs')]: {
+        maxWidth: '200px',
+      },
+    },
   }))
 
   const classes = useStyles()
@@ -70,6 +73,7 @@ const Projects = () => {
       <br />
       <Paper className={classes.root}>
         <Tabs
+          variant="scrollable"
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
