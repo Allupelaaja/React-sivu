@@ -50,11 +50,11 @@ const App = React.forwardRef((props, ref) => {
       justifyContent: 'flex-end',
     },
     page: {
-      width: '75%',
-      margin: '0 auto',
-      padding: '30px',
-      // borderRadius: '25px',
-      // backgroundColor: customTheme.palette.background.paper,
+      [theme.breakpoints.up('xs')]: {
+        width: '75%',
+        margin: '0 auto',
+        padding: '30px',
+      },
     },
   }))
 
