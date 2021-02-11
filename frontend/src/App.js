@@ -46,7 +46,7 @@ const App = React.forwardRef((props, ref) => {
       display: 'flex',
       alignItems: 'center',
       padding: customTheme.spacing(0, 1),
-      minHeight: '34px',
+      minHeight: '70px',
       justifyContent: 'flex-end',
     },
     page: {

@@ -2,17 +2,17 @@ const links = [
     {
       href: "https://github.com/Allupelaaja",
       target: "_blank",
-      text: "Github",
+      text: "My Github",
     },
     {
       href: "https://gitlab.com/Allupelaaja",
       target: "_blank",
-      text: "Gitlab",
+      text: "My Gitlab",
     },
     {
       href: "https://alekshei-portfolio.herokuapp.com/cv",
       target: "_blank",
-      text: "CV (Pdf)",
+      text: "CV (Finnish) (Pdf)",
     },
     {
       href: "https://alekshei-portfolio.herokuapp.com/api",

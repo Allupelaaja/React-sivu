@@ -26,19 +26,23 @@ const WelcomePage = () => {
       padding: '3%'
     },
     imgDiv: {
-      float: 'left',
-      paddingBottom: '2%',
-      paddingRight: '2%'
+      [theme.breakpoints.up('sm')]: {
+        float: 'left',
+        paddingBottom: '2%',
+        paddingRight: '2%'
+      },
     },
     img: {
       display: 'block',
       margin: 'auto',
     },
     picText: {
-      paddingTop: '5px',
       display: 'flex',
       margin: 'auto',
-      paddingRight: '25px'
+      paddingTop: '5px',
+      [theme.breakpoints.up('sm')]: {
+        paddingRight: '25px',
+      },
     },
     icon: {
       paddingRight: '5px'
@@ -68,6 +72,7 @@ const WelcomePage = () => {
           </div>
         </div>
         <div className={classes.pageText}>
+          <br />
           <Typography variant='h4'>Introduction</Typography>
           <Typography>Hello and welcome to my website!
           My name is Aleksi Heikkilä and I am a student in the Metropolia school of applied sciences.
@@ -82,18 +87,33 @@ const WelcomePage = () => {
           I enjoy watching movies, playing video games and hanging out with my friends.</Typography>
           <br />
           <Typography variant='h4'>Skills</Typography>
-          <Typography>My skills include ...</Typography>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare elementum nunc, a sollicitudin nunc consequat a. Etiam nec tincidunt libero. Pellentesque commodo ipsum luctus vulputate bibendum. Maecenas ac nunc erat. Sed non lectus nisi. Nulla felis lorem, porttitor in porttitor in, viverra sed sapien. Morbi condimentum finibus nisi, id vestibulum lectus condimentum sed. Mauris tristique placerat libero ac fringilla. Sed pharetra ipsum vitae lectus volutpat, et porttitor diam laoreet. Sed eget diam nunc. Morbi venenatis, quam quis venenatis auctor, odio est mollis nibh, eu lacinia nisl diam eu enim. Fusce lacinia ex vitae risus viverra finibus. Pellentesque sagittis lectus mattis, gravida nibh at, imperdiet tellus. Integer ornare erat sed elit aliquam, ut tempus nibh ultrices. Vestibulum varius varius malesuada.
-
-            In hac habitasse platea dictumst. Cras molestie sit amet est eget sagittis. In a nisl vitae mauris scelerisque convallis. Aliquam porttitor malesuada velit, quis posuere magna maximus sit amet. Vivamus blandit velit magna, quis fringilla magna malesuada quis. Proin condimentum maximus sapien. Sed eget porta odio. Nulla cursus metus vel est eleifend, ultrices ultricies nisl dapibus. Proin porta enim bibendum eros rhoncus sollicitudin. Vivamus vitae arcu et enim condimentum sollicitudin in id lectus. Vivamus metus massa, imperdiet et lectus nec, ultricies varius nulla. Cras porta elit quis est iaculis, vitae venenatis erat posuere. Cras finibus eget nulla vel hendrerit. Nullam et diam orci. Etiam finibus pulvinar est sed tincidunt.
-
-            Praesent consequat efficitur nunc id viverra. Duis in mi lectus. In ut lobortis urna. Maecenas nisi mauris, consequat vitae purus ut, convallis accumsan erat. Sed accumsan interdum suscipit. Praesent gravida viverra urna et porta. Nullam dictum, sem nec posuere consequat, nibh dolor sollicitudin metus, sit amet consequat urna ipsum vel ex. Suspendisse vitae auctor mauris. In tincidunt ullamcorper est a dignissim. Nunc pharetra varius fermentum.
-
-            Mauris nec ex est. Nunc luctus nec enim ac interdum. Vestibulum ligula enim, semper ut quam sit amet, suscipit tincidunt odio. Morbi in nisl tempus, posuere eros nec, egestas risus. Praesent ac leo quis arcu laoreet accumsan. Cras ullamcorper rhoncus tincidunt. Aliquam feugiat lacus non enim congue, eget tincidunt lectus imperdiet. Donec congue ante et mauris egestas, vel imperdiet nunc posuere. Suspendisse potenti. Vivamus velit purus, fermentum sit amet urna a, elementum semper justo. Morbi sagittis, metus at faucibus ullamcorper, ante odio gravida urna, in placerat dolor sapien accumsan ipsum. Etiam scelerisque vulputate odio suscipit fermentum. Maecenas congue arcu eu sem efficitur, nec elementum tortor mattis. Duis mauris est, malesuada et sodales at, laoreet non est. Fusce sagittis suscipit urna quis gravida. Phasellus et erat vestibulum massa egestas auctor ut eu sapien.
-
-            Nullam in vehicula leo, ultrices suscipit tortor. Sed lacinia tellus lacus, id sodales nulla imperdiet a. Quisque bibendum tincidunt lacus, ut blandit turpis. Maecenas congue ex lorem, nec dapibus leo ornare ac. Curabitur gravida nibh ut nibh feugiat, id feugiat augue consectetur. Donec at finibus tortor. Praesent et porttitor erat. Praesent varius turpis ac velit posuere cursus. Sed odio mi, vulputate eu pellentesque a, egestas ac justo. Sed lobortis pellentesque lacus non lobortis. Nunc dictum, sem ac pellentesque vulputate, arcu nisi posuere mi, at vehicula nulla arcu id velit. Aliquam sagittis ante egestas rhoncus lobortis. Suspendisse potenti.
-          </p>
+          <Typography>
+            I am skilled in a multitude of things, some of which include different programming languages, databases and software.
+            I have had the most practice in Java, SQL, Html, CSS and JavaScript. During my studies I have also used C/C++/C# and PHP.
+          </Typography>
+          <br />
+          <Typography>
+            On the software front, I have experience with several IDE&apos;s such as Eclipse, Visual Studio and NetBeans.
+            I am also very experienced in the use of the Windows operating system.
+            I have dabbled in the use of Linux as well.
+            I have probably used Git in every project I have been part of to date.
+            When using Git I always try to use descriptive commit messages to help with the understanding of my code.
+          </Typography>
+          <br />
+          <Typography>
+            Because of my frequent use of computers in my free time, my problem-solving skills have also improved considerably during the years.
+            Googling solutions to all kinds of problems is a daily occurrence to me and I almost always find what is needed.
+          </Typography>
+          <br />
+          <Typography>
+            Unrelated to programming, I can use the following languages in order from best to worst: Finnish `&gt;` English `&gt;` Swedish `&gt;` German.
+          </Typography>
+          <br />
+          <Typography>
+            My social skills are pretty good in my opinion, and I have plenty of experience in working with groups because of several school group projects.
+            I have been described as friendly and easily approachable and I always enjoy meeting new people.
+            I usually prefer working in groups, but working alone is not foreign to me.
+          </Typography>
         </div>
       </div>
     </div>

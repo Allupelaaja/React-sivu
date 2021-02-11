@@ -128,8 +128,10 @@ const Courses = () => {
     return (
         <div>
             <Typography variant='h4' className={classes.header}>Courses</Typography>
+            <br/>
             <div>
                 <Typography variant='h5'>List of completed courses:</Typography>
+                <br/>
                 <div>
                     {user === null ?
                         <></> :
