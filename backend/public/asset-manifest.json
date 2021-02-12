@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/static/js/main.ff648db5.chunk.js",
-    "main.js.map": "/static/js/main.ff648db5.chunk.js.map",
+    "main.js": "/static/js/main.76289a49.chunk.js",
+    "main.js.map": "/static/js/main.76289a49.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2fd7dc15.js",
     "runtime-main.js.map": "/static/js/runtime-main.2fd7dc15.js.map",
     "static/js/2.8f07b0b5.chunk.js": "/static/js/2.8f07b0b5.chunk.js",
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.2fd7dc15.js",
     "static/js/2.8f07b0b5.chunk.js",
-    "static/js/main.ff648db5.chunk.js"
+    "static/js/main.76289a49.chunk.js"
   ]
 }

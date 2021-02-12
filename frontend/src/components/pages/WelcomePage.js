@@ -106,7 +106,7 @@ const WelcomePage = () => {
           </Typography>
           <br />
           <Typography>
-            Unrelated to programming, I can use the following languages in order from best to worst: Finnish `&gt;` English `&gt;` Swedish `&gt;` German.
+            Unrelated to programming, I can use the following languages in order from best to worst: Finnish &gt; English &gt; Swedish &gt; German.
           </Typography>
           <br />
           <Typography>
