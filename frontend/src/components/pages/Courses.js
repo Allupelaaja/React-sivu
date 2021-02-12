@@ -156,11 +156,11 @@ const Courses = () => {
                                     primary={course.name}
                                     secondary={
                                         <React.Fragment>
-                                            <Typography>Grade: {course.grade}</Typography>
+                                            Grade: {course.grade}
                                             <br />
-                                            <Typography>Course credit amount: {course.points}</Typography>
+                                            Course credit amount: {course.points}
                                             <br />
-                                            {course.misc !== undefined ? <Typography>{"Info: " + course.misc}</Typography> : <></>}
+                                            {course.misc !== undefined ? "Info: " + course.misc : <></>}
                                         </React.Fragment>}
                                 />
                                 <ListItemSecondaryAction>

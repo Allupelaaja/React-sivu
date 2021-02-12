@@ -3,11 +3,17 @@ import PropTypes from 'prop-types'
 
 //Core
 import { makeStyles, Typography } from '@material-ui/core'
+import { useTheme } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import { useTheme } from '@material-ui/core/styles';
+import Accordion from '@material-ui/core/Accordion';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+
+//Icons
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 //Arrays
 import tabs from '../../resources/arrays/tabs.js'
@@ -25,7 +31,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          {children}
         </Box>
       )}
     </div>
@@ -54,6 +60,13 @@ const Projects = () => {
       [theme.breakpoints.down('xs')]: {
         maxWidth: '200px',
       },
+      root: {
+        width: '100%',
+      },
+      heading: {
+        fontSize: theme.typography.pxToRem(15),
+        fontWeight: theme.typography.fontWeightRegular,
+      },
     },
   }))
 
@@ -65,20 +78,19 @@ const Projects = () => {
     setValue(newValue);
   };
 
-  
+
 
   return (
     <div>
       <Typography variant='h4' className={classes.header}>List of projects</Typography>
       <br />
-      <Paper className={classes.root}>
+      <Paper>
         <Tabs
           variant="scrollable"
           value={value}
           onChange={handleChange}
           indicatorColor="primary"
           textColor="primary"
-          centered
         >
           {tabs.map((item) => (
             <Tab key={item.year} label={item.year} />
@@ -87,48 +99,57 @@ const Projects = () => {
       </Paper>
       {tabs.map((item) => (
         <TabPanel key={tabs.indexOf(item)} value={value} index={tabs.indexOf(item)}>
-          {item.contents.map((entry) => (
-            <div key={entry}>
-              <Typography variant='h5'>{entry.text}</Typography>
-              <Typography>
-                {/* Show link if it exists */}
-                {entry.link !== undefined ?
+          <div className={classes.root}>
+            {item.contents.map((entry) => (
+              <Accordion key={entry.text}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                >
+                  <Typography className={classes.heading}>{entry.text}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
                   <div>
-                    <a
-                      style={{ color: "white" }}
-                      href={entry.link} 
-                      target="_blank"
-                      rel="noreferrer">
-                      <Typography>Link</Typography>
-                    </a>
+                    {/* Show link if it exists */}
+                    {entry.link !== undefined ?
+                      <div>
+                        <a
+                          style={{ color: "white" }}
+                          href={entry.link}
+                          target="_blank"
+                          rel="noreferrer">
+                          <Typography>Link to project Git</Typography>
+                        </a>
+                        <br />
+                      </div>
+                      : <></>}
+                    {/* Show images if they exist */}
+                    {entry.img !== undefined ?
+                      <div>
+                        {entry.img.map((singleImg, index) => (
+                          <img key={index} className={classes.image}
+                            src={singleImg}
+                            alt="Image of project"
+                          />
+                        ))}
+                      </div>
+                      : <></>}
+                    {/* Show description if it exists */}
+                    {entry.desc !== undefined ?
+                      <div>
+                        <Typography>{entry.desc}</Typography>
+                      </div>
+                      : <></>}
+                    <Typography>Tech used:</Typography>
+                    <ul>
+                      {entry.tech.map((tech) => (
+                        <li key={tech}><Typography>{tech}</Typography></li>
+                      ))}
+                    </ul>
                   </div>
-                  : <></>}
-                {/* Show images if they exist */}
-                {entry.img !== undefined ?
-                  <div>
-                    {entry.img.map((singleImg, index) => (
-                      <img key={index} className={classes.image}
-                        src={singleImg}
-                        alt="Image of project"
-                      />
-                    ))}
-                  </div>
-                  : <></>}
-                {/* Show description if it exists */}
-                {entry.desc !== undefined ?
-                  <div>
-                    <p>{entry.desc}</p>
-                  </div>
-                  : <></>}
-                <p>Tech used:</p>
-                <ul>
-                  {entry.tech.map((tech) => (
-                    <li key={tech}>{tech}</li>
-                  ))}
-                </ul>
-              </Typography>
-            </div>
-          ))}
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          </div>
         </TabPanel>
       ))}
     </div>

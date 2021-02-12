@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/static/js/main.9cad92f2.chunk.js",
-    "main.js.map": "/static/js/main.9cad92f2.chunk.js.map",
+    "main.js": "/static/js/main.ff648db5.chunk.js",
+    "main.js.map": "/static/js/main.ff648db5.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2fd7dc15.js",
     "runtime-main.js.map": "/static/js/runtime-main.2fd7dc15.js.map",
-    "static/js/2.ea0b4fb9.chunk.js": "/static/js/2.ea0b4fb9.chunk.js",
-    "static/js/2.ea0b4fb9.chunk.js.map": "/static/js/2.ea0b4fb9.chunk.js.map",
+    "static/js/2.8f07b0b5.chunk.js": "/static/js/2.8f07b0b5.chunk.js",
+    "static/js/2.8f07b0b5.chunk.js.map": "/static/js/2.8f07b0b5.chunk.js.map",
     "index.html": "/index.html",
-    "static/js/2.ea0b4fb9.chunk.js.LICENSE.txt": "/static/js/2.ea0b4fb9.chunk.js.LICENSE.txt",
+    "static/js/2.8f07b0b5.chunk.js.LICENSE.txt": "/static/js/2.8f07b0b5.chunk.js.LICENSE.txt",
     "static/media/BlackJaakko.b0a82673.jpg": "/static/media/BlackJaakko.b0a82673.jpg",
     "static/media/tonttisuunnitelma.2339e088.JPG": "/static/media/tonttisuunnitelma.2339e088.JPG",
     "static/media/websitekuva.17a8ffe1.jpg": "/static/media/websitekuva.17a8ffe1.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.2fd7dc15.js",
-    "static/js/2.ea0b4fb9.chunk.js",
-    "static/js/main.9cad92f2.chunk.js"
+    "static/js/2.8f07b0b5.chunk.js",
+    "static/js/main.ff648db5.chunk.js"
   ]
 }

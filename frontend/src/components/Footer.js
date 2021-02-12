@@ -25,17 +25,19 @@ const Footer = () => {
             },
         },
         text2: {
-            marginRight: 'auto',
             display: 'flex',
-            marginLeft: '5px'
-        },
-        text1: {
-            marginLeft: 'auto',
-            marginRight: '5px',
-        },
-        textSize: {
+            [theme.breakpoints.up('sm')]: {
+                marginRight: 'auto',
+                marginLeft: '15px',
+            },
             [theme.breakpoints.down('xs')]: {
                 fontSize: '0.8rem'
+            },
+        },
+        text1: {
+            [theme.breakpoints.up('sm')]: {
+                marginLeft: 'auto',
+                marginRight: '5px',
             },
         },
         icon: {
@@ -52,11 +54,9 @@ const Footer = () => {
         <div className={classes.page}>
             <Typography className={classes.text1, classes.textSize}>Made by Aleksi Heikkilä 2021</Typography>
             <div className={classes.text2}>
-                <Typography className={classes.textSize}>
-                    Made with React using <a style={{ color: "white" }} href="https://material-ui.com/" target="_blank" rel="noreferrer">
-                        Material-UI <LaunchIcon className={classes.icon} />
-                    </a>
-                </Typography>
+                <Typography>Made with React using&nbsp;</Typography>
+                <a style={{ color: "white" }} href="https://material-ui.com/" target="_blank" rel="noreferrer"><Typography>Material-UI</Typography></a>
+                <LaunchIcon className={classes.icon} />
             </div>
         </div>
     )
