@@ -15,6 +15,11 @@ const links = [
       text: "CV (Finnish) (Pdf)",
     },
     {
+      href: "https://alekshei-portfolio.herokuapp.com/cv_en",
+      target: "_blank",
+      text: "CV (English) (Pdf)",
+    },
+    {
       href: "https://alekshei-portfolio.herokuapp.com/api",
       target: "_blank",
       text: "Courses API",

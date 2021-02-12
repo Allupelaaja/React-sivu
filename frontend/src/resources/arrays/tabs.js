@@ -80,7 +80,8 @@ const tabs = [
           tech: [
             "JavaScript/React.js", "Node.js", "HTML", "CSS", "NoSQL", "REST"
           ],
-          desc: "My personal website for showcasing information about myself and my completed courses/projects."
+          desc: "My personal website for showcasing information about myself and my completed courses/projects.",
+          link: "https://github.com/Allupelaaja/React-sivu",
         },
       ],
     },

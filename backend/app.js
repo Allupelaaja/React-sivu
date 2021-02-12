@@ -30,6 +30,10 @@ app.get('/cv', (req, res) => {
   res.sendFile(path.join(__dirname, '/resources/CV.pdf'))
 })
 
+app.get('/cv_en', (req, res) => {
+  res.sendFile(path.join(__dirname, '/resources/CV_EN.pdf'))
+})
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/public/index.html'))
   })

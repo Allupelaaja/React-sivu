@@ -93,7 +93,7 @@ const WelcomePage = () => {
           </Typography>
           <br />
           <Typography>
-            On the software front, I have experience with several IDE&apos;s such as Eclipse, Visual Studio and NetBeans.
+            On the software front, I have experience with several IDEs such as Eclipse, Visual Studio and NetBeans.
             I am also very experienced in the use of the Windows operating system.
             I have dabbled in the use of Linux as well.
             I have probably used Git in every project I have been part of to date.
