@@ -86,15 +86,15 @@ const Header = (props) => {
       <div className={classes.linkButtons}>
         {headerLinks.map((singleLink, index) => (
           <Box m={1} key={index}>
-            <Button variant="contained" key={index} to={singleLink.link} component={Link}>
-              <Typography>{singleLink.text}</Typography> {singleLink.icon !== undefined ? singleLink.icon : <></>}
+            <Button variant="outlined" key={index} to={singleLink.link} component={Link}>
+              {singleLink.icon !== undefined ? singleLink.icon : <></>}&nbsp;<Typography>{singleLink.text}</Typography>
             </Button>
           </Box>
         ))}
         <Box m={1}>
           <div>
-            <Button variant="contained" aria-controls="simple-menu" aria-haspopup="true" onClick={handleMenuClick}>
-              <Typography>Links</Typography><MoreVertIcon />
+            <Button variant="outlined" aria-controls="simple-menu" aria-haspopup="true" onClick={handleMenuClick}>
+              <MoreVertIcon />&nbsp;<Typography>Links</Typography>
             </Button>
             <Menu
               id="simple-menu"

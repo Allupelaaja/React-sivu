@@ -10,7 +10,7 @@ import PasswordForm from '../forms/PasswordForm'
 
 //Icons
 import AddIcon from '@material-ui/icons/Add'
-import NoteIcon from '@material-ui/icons/Note'
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import DeleteIcon from '@material-ui/icons/Delete'
 
 //Core
@@ -139,9 +139,9 @@ const Courses = () => {
                     }
                     {user === null ?
                         <></> :
-                        <Button variant="contained" onClick={handleLogout}><Typography>Logout</Typography></Button>
+                        <Button variant="outlined" onClick={handleLogout}><Typography>Logout</Typography></Button>
                     }
-                    <Button variant="contained" onClick={handleClickOpen}><Typography>Add new course</Typography><AddIcon /></Button>
+                    <Button variant="outlined" onClick={handleClickOpen}><AddIcon />&nbsp;<Typography>Add new course</Typography></Button>
                     <PasswordForm open={passwordOpen} onClose={handlePasswordClose} user={user} setUser={setUser} />
                     <CourseForm open={open} onClose={handleClose} isUpdating={isUpdating} course={updatingCourse} courses={courses} setCourses={setCourses} />
                 </div>
@@ -150,7 +150,7 @@ const Courses = () => {
                         <div key={course.id}>
                             <ListItem button onClick={((e) => handleModify(e, course))}>
                                 <ListItemIcon>
-                                    <NoteIcon />
+                                    <AssignmentIcon />
                                 </ListItemIcon>
                                 <ListItemText
                                     primary={course.name}

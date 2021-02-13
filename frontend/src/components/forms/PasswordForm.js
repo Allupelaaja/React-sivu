@@ -86,6 +86,7 @@ const PasswordForm = (props) => {
                     <TextField
                         margin="dense"
                         required
+                        type="password"
                         id="form-password"
                         label="Password"
                         fullWidth
