@@ -160,7 +160,7 @@ const Courses = () => {
                                             <br />
                                             Course credit amount: {course.points}
                                             <br />
-                                            {course.misc !== undefined ? "Info: " + course.misc : <></>}
+                                            {course.misc !== (undefined || null) ? "Info: " + course.misc : <></>}
                                         </React.Fragment>}
                                 />
                                 <ListItemSecondaryAction>

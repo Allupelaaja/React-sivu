@@ -24,6 +24,11 @@ const links = [
       target: "_blank",
       text: "Courses API",
     },
+    {
+      href: "https://allupelaaja.github.io/tt-app/",
+      target: "_blank",
+      text: "Timetables app",
+    },
   ]
 
   export default links

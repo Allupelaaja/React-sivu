@@ -83,6 +83,14 @@ const tabs = [
           desc: "My personal website for showcasing information about myself and my completed courses/projects.",
           link: "https://github.com/Allupelaaja/React-sivu",
         },
+        {
+          text: "Timetables app",
+          tech: [
+            "JavaScript/React.js", "Redux", "HTML", "CSS", "GraphQL", "REST"
+          ],
+          desc: "A timetables app for showing timetables between an address of your choosing and Maria 01",
+          link: "https://allupelaaja.github.io/tt-app/",
+        },
       ],
     },
   ]

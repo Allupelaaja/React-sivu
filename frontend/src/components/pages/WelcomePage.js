@@ -89,7 +89,7 @@ const WelcomePage = () => {
           <Typography variant='h4'>Skills</Typography>
           <Typography>
             I am skilled in a multitude of things, some of which include different programming languages, databases and software.
-            I have had the most practice in Java, SQL, Html, CSS and JavaScript. During my studies I have also used C/C++/C# and PHP.
+            I have had the most practice in Java, SQL, Html, CSS and JavaScript. During my studies I have also used C/C++/C#, GraphQL, Redux and PHP.
           </Typography>
           <br />
           <Typography>
