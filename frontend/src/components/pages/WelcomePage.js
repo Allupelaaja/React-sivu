@@ -83,7 +83,7 @@ const WelcomePage = () => {
           I have created this website using React.js and the Material-ui framework.</Typography>
           <br />
           <Typography variant='h4'>Info about me</Typography>
-          <Typography>I am a 24-year old programmer from Helsinki, Finland. In addition to programming,
+          <Typography>I am a 25-year old programmer from Helsinki, Finland. In addition to programming,
           I enjoy watching movies, playing video games and hanging out with my friends.</Typography>
           <br />
           <Typography variant='h4'>Skills</Typography>
