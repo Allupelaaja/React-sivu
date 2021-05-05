@@ -25,7 +25,7 @@ const links = [
       text: "Courses API",
     },
     {
-      href: "https://allupelaaja.github.io/tt-app/",
+      href: "https://github.com/Allupelaaja/tt-app",
       target: "_blank",
       text: "Timetables app",
     },
