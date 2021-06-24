@@ -36,6 +36,7 @@ const Courses = () => {
     const classes = useStyles()
 
     const [courses, setCourses] = useState([])
+    const [courseAvg, setCourseAvg] = useState(0.0)
     const [open, setOpen] = useState(false)
     const [passwordOpen, setPasswordOpen] = useState(false)
     const [isUpdating, setIsUpdating] = useState(false)
@@ -49,6 +50,11 @@ const Courses = () => {
             //Sorts by name
             result.data.sort((a, b) => a.name.localeCompare(b.name))
             setCourses(result.data)
+            //courses average
+            var avgTemp = 0;
+            result.data.forEach(element => avgTemp += element.grade);
+            avgTemp = avgTemp / result.data.length;
+            setCourseAvg(avgTemp);
         }
         getCourses()
     }, [])
@@ -131,6 +137,8 @@ const Courses = () => {
             <br/>
             <div>
                 <Typography variant='h5'>List of completed courses:</Typography>
+                <br/>
+                <Typography variant='h5'>Grade average: {courseAvg}</Typography>
                 <br/>
                 <div>
                     {user === null ?
