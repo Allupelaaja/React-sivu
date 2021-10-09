@@ -88,8 +88,16 @@ const tabs = [
           tech: [
             "JavaScript/React.js", "Redux", "HTML", "CSS", "GraphQL", "REST"
           ],
-          desc: "A timetables app for showing timetables between an address of your choosing and Maria 01",
-          link: "https://allupelaaja.github.io/tt-app/",
+          desc: "A timetables app for showing timetables between an address of your choosing and Maria 01.",
+          link: "https://github.com/Allupelaaja/tt-app",
+        },
+        {
+          text: "Map marker app",
+          tech: [
+            "JavaScript/React.js", "HTML", "CSS", "Node.js"
+          ],
+          desc: "An app for adding and removing markers from a map.",
+          link: "https://github.com/Allupelaaja/map-app",
         },
       ],
     },

@@ -25,9 +25,14 @@ const links = [
       text: "Courses API",
     },
     {
-      href: "https://github.com/Allupelaaja/tt-app",
+      href: "https://allupelaaja.github.io/tt-app/",
       target: "_blank",
       text: "Timetables app",
+    },
+    {
+      href: "https://alekshei-mapsapp.herokuapp.com/",
+      target: "_blank",
+      text: "Map marker app",
     },
   ]
 
