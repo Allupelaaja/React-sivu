@@ -19,7 +19,7 @@ app.use(middleware.tokenExtractor)
 app.use(express.static('public'))
 
 app.use('/api/courses', courseRouter)
-app.use('/api/users', userRouter)
+// app.use('/api/users', userRouter)
 app.use('/api/login', loginRouter)
 
 app.get('/api', (req, res) => {
