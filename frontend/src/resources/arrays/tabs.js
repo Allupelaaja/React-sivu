@@ -1,6 +1,7 @@
 //Image
 import propertyImg from '../../resources/img/tonttisuunnitelma.JPG'
 import blackjackImg from '../../resources/img/BlackJaakko.jpg'
+import mapAppImg from '../../resources/img/mapapp.jpg'
 
 const tabs = [
     {
@@ -98,6 +99,7 @@ const tabs = [
           ],
           desc: "An app for adding and removing markers from a map.",
           link: "https://github.com/Allupelaaja/map-app",
+          img: [mapAppImg]
         },
       ],
     },
