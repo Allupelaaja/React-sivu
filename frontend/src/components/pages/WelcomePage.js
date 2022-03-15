@@ -51,6 +51,13 @@ const WelcomePage = () => {
 
   const classes = useStyles()
 
+  var currDate = new Date();
+  var birthDate = new Date(1996, 2, 13);
+  var age = currDate.getFullYear() - birthDate.getFullYear();
+  if ((currDate.getMonth() < birthDate.getMonth()) || ((currDate.getMonth() == birthDate.getMonth()) && (currDate.getDate() < birthDate.getDate()))) {
+    age--;
+  }
+
   return (
     <div>
       <Typography variant='h2' className={classes.center}>About</Typography>
@@ -75,16 +82,16 @@ const WelcomePage = () => {
           <br />
           <Typography variant='h4'>Introduction</Typography>
           <Typography>Hello and welcome to my website!
-          My name is Aleksi Heikkilä and I am a student in the Metropolia school of applied sciences.
-          I am currently finishing my final year of studies in
-          &apos;Information and Communication Technology, Bachelor&apos;s Degree&apos;.
-          On this webpage you can find a listing of my completed courses and projects.
-          I have also included links to my Github/Gitlab, CV and an example API I have made for the list of my courses.
-          I have created this website using React.js and the Material-ui framework.</Typography>
+            My name is Aleksi Heikkilä and I am a student in the Metropolia school of applied sciences.
+            I am currently finishing my final year of studies in
+            &apos;Information and Communication Technology, Bachelor&apos;s Degree&apos;.
+            On this webpage you can find a listing of my completed courses and projects.
+            I have also included links to my Github/Gitlab, CV and an example API I have made for the list of my courses.
+            I have created this website using React.js and the Material-ui framework.</Typography>
           <br />
           <Typography variant='h4'>Info about me</Typography>
-          <Typography>I am a 25-year old programmer from Helsinki, Finland. In addition to programming,
-          I enjoy watching movies, playing video games and hanging out with my friends.</Typography>
+          <Typography>I am a {age}-year old programmer from Helsinki, Finland. In addition to programming,
+            I enjoy watching movies, playing video games and hanging out with my friends.</Typography>
           <br />
           <Typography variant='h4'>Skills</Typography>
           <Typography>
